@@ -2,5 +2,17 @@ node_modules
 npm-debug.log
 .git
 .gitignore
+README.md
+.env
+.nyc_output
 coverage
+.env.example
+docker-compose.yml
+docker-compose.*.yml
+Dockerfile
+.dockerignore
+test
 tests
+*.test.js
+jest.config.js
+.eslintrc*

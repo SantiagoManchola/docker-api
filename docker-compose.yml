@@ -18,7 +18,10 @@ services:
       retries: 10
 
   api:
-    build: .
+    # For development: uncomment the next line and comment the image line
+    # build: .
+    # For production: use the image from Docker Hub
+    image: juanalvarez2004/api-peliculas:latest
     depends_on:
       db:
         condition: service_healthy

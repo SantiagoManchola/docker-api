@@ -15,6 +15,7 @@ A containerized REST API for managing a movies catalog. Built with Node.js, Expr
 - PostgreSQL schema + optional seed data
 - Dockerfile + docker-compose
 - Basic tests with Jest + Supertest
+- **Docker Hub Image**: `juanalvarez2004/api-peliculas:latest`
 
 ---
 
@@ -28,9 +29,11 @@ A containerized REST API for managing a movies catalog. Built with Node.js, Expr
 
 ## Quickstart (Docker)
 
+### Option 1: Development (Clone repository)
+
 ```bash
 # 1) Clone
-git clone <your-repo-url> api-peliculas
+git clone https://github.com/SantiagoManchola/docker-api.git api-peliculas
 cd api-peliculas
 
 # 2) (Optional) copy env
@@ -38,4 +41,32 @@ cp .env.example .env
 
 # 3) Up the stack
 docker-compose up --build
+```
+
+### Option 2: Production (Using Docker Hub image)
+
+If you just want to run the application without cloning the repository:
+
+```bash
+# 1) Create a directory for the project
+mkdir api-peliculas
+cd api-peliculas
+
+# 2) Download the docker-compose file
+curl -O https://raw.githubusercontent.com/SantiagoManchola/docker-api/main/docker-compose.yml
+
+# 3) Download the database files
+mkdir db
+curl -o db/schema.sql https://raw.githubusercontent.com/SantiagoManchola/docker-api/main/db/schema.sql
+curl -o db/seed.sql https://raw.githubusercontent.com/SantiagoManchola/docker-api/main/db/seed.sql
+
+# 4) Run the application
+docker-compose up -d
+```
+
+The API will be available at: http://localhost:3000
+
+To stop the application:
+```bash
+docker-compose down
 ```
